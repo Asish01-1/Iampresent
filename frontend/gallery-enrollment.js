@@ -119,15 +119,19 @@ proceedButton.addEventListener("click", async function () {
 
     try {
 
-        const response = await fetch(
-            "http://127.0.0.1:8000/enrollment/gallery",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
+    const API_BASE =
+        window.location.hostname === "localhost" &&
+        window.location.port === "5500"
+            ? "http://127.0.0.1:8000"
+            : window.location.origin;
 
-
+    const response = await fetch(
+        `${API_BASE}/enrollment/gallery`,
+        {
+            method: "POST",
+            body: formData
+        }
+    );
         const result = await response.json();
 
 
