@@ -1,4 +1,4 @@
-const API_BASE =
+const API =
     window.location.hostname === "localhost" &&
     window.location.port === "5500"
         ? "http://127.0.0.1:8000"
