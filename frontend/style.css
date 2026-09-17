@@ -1,0 +1,678 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    background: white;
+    border-bottom: 1px solid #e4e7ed;
+
+    padding: 24px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.header p {
+    margin: 6px 0 0;
+
+    color: #707887;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    background: #eef1f5;
+
+    color: #697181;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #9aa1ad;
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.container {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 35px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.card {
+    background: white;
+
+    border: 1px solid #e4e7ed;
+
+    border-radius: 14px;
+
+    padding: 24px;
+}
+
+.card h2 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.description {
+    margin: 7px 0 20px;
+
+    color: #747c89;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d9dde5;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #596579;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 11px 16px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #172033;
+
+    color: white;
+}
+
+.primary-button:hover {
+    background: #293348;
+}
+
+.secondary-button {
+    background: #eef0f4;
+
+    color: #303847;
+}
+
+.secondary-button:hover {
+    background: #e2e5ea;
+}
+
+button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   BUTTON ROW
+========================================== */
+
+.button-row {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.button-row button {
+    flex: 1;
+}
+
+
+/* ==========================================
+   CAMERA
+========================================== */
+
+.camera-box {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #151a23;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.camera-box video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+
+/* ==========================================
+   CAMERA PLACEHOLDER
+========================================== */
+
+#cameraPlaceholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #c6cbd4;
+}
+
+.camera-icon {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+#cameraPlaceholder p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.message {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    color: #707887;
+}
+
+
+/* ==========================================
+   DETECTED STUDENTS HEADER
+========================================== */
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+
+/* ==========================================
+   STUDENT COUNT
+========================================== */
+
+.count {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 9px;
+
+    background: #eef1f5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   STUDENT LIST
+========================================== */
+
+.student-list {
+    border-top: 1px solid #edf0f4;
+
+    border-bottom: 1px solid #edf0f4;
+
+    margin-top: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty {
+    min-height: 130px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 7px;
+
+    color: #858d99;
+}
+
+.empty strong {
+    font-size: 14px;
+
+    color: #646d7b;
+}
+
+.empty span {
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   STUDENT ROW
+========================================== */
+
+.student-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 5px;
+
+    border-bottom: 1px solid #edf0f4;
+}
+
+.student-row:last-child {
+    border-bottom: none;
+}
+
+.student-check {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: #e9f7ee;
+
+    color: #168044;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: bold;
+}
+
+.student-info {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.student-name {
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+.student-id {
+    color: #7b8390;
+
+    font-size: 12px;
+}
+
+.student-class {
+    color: #68717f;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   PROCEED BUTTON
+========================================== */
+
+.proceed-button {
+    width: 100%;
+
+    background: #172033;
+
+    color: white;
+}
+
+.proceed-button:hover:not(:disabled) {
+    background: #293348;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
+
+/* ==========================================
+   ENROLLMENT
+========================================== */
+
+.hidden {
+    display: none;
+}
+
+.enrollment-section {
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.enrollment-section h3 {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.camera-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #c6cbd4;
+}
+
+.capture-status {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: #f5f7fb;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+#enrollmentCamera {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+#captureButton {
+    flex: 1;
+}
+
+#startEnrollmentCamera {
+    flex: 1;
+}
+
+#enrollButton {
+    margin-top: 12px;
+}
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand a {
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.nav-links a:last-child {
+    padding: 9px 15px;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+}
+
+.nav-links a:last-child:hover {
+    background: #1d4ed8;
+}
+
+
+
+
+
+
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.gallery-preview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 5px;
+    border: 1px solid #ddd;
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#proceedEnrollment {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+}
+
+#proceedEnrollment:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#enrollmentStatus {
+    margin-top: 15px;
+    font-weight: 600;
+}

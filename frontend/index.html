@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Student Attendance
+    </title>
+   
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <!-- <div>
+
+        <h1>
+            AI Student Attendance
+        </h1>
+
+        <p>
+            Face recognition based classroom attendance
+        </p> 
+
+    </div> -->
+     <nav class="navbar">
+    <div class="nav-brand">
+        <a href="index.html">AI Attendance</a>
+    </div>
+
+    <div class="nav-links">
+        
+        <a href="gallery-enrollment.html">Custom Enrollment</a>
+    </div>
+</nav>
+
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        Ready
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- ==========================================
+         STUDENT ENROLLMENT
+    =========================================== -->
+
+    <section class="card">
+
+        <h2>
+            Student Enrollment
+        </h2>
+
+        <p class="description">
+
+            Add a student and capture face images
+            for AI recognition.
+
+        </p>
+
+
+        <form id="studentForm">
+
+
+            <div class="form-group">
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="e.g. 003"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="studentName">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter student name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="className">
+                    Class
+                </label>
+
+                <input
+                    type="text"
+                    id="className"
+                    placeholder="e.g. MCA"
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button"
+                id="addStudentButton"
+            >
+
+                Add Student
+
+            </button>
+
+        </form>
+
+
+        <div
+            id="studentMessage"
+            class="message"
+        ></div>
+
+
+
+        <!-- ENROLLMENT CAMERA -->
+
+        <div
+            id="enrollmentSection"
+            class="enrollment-section hidden"
+        >
+
+            <h3>
+                Capture Face Images
+            </h3>
+
+
+            <p class="description">
+
+                Keep your face visible and capture
+                different natural angles.
+
+            </p>
+
+
+            <div class="camera-box">
+
+
+                <div
+                    id="enrollmentPlaceholder"
+                    class="camera-placeholder"
+                >
+
+                    <div class="camera-icon">
+                        ◉
+                    </div>
+
+                    <p>
+                        Enrollment camera not started
+                    </p>
+
+                </div>
+
+
+                <video
+                    id="enrollmentCamera"
+                    autoplay
+                    playsinline
+                ></video>
+
+            </div>
+
+
+            <div class="capture-status">
+
+                <strong>
+
+                    Captured:
+                    <span id="captureCount">
+                        0
+                    </span>
+                    / 30
+
+                </strong>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    id="startEnrollmentCamera"
+                    class="primary-button"
+                >
+
+                    Start Camera
+
+                </button>
+
+
+                <button
+                    id="captureButton"
+                    class="secondary-button"
+                    disabled
+                >
+
+                    Capture
+
+                </button>
+
+            </div>
+
+
+            <button
+                id="enrollButton"
+                class="proceed-button"
+                disabled
+            >
+
+                Enroll Student
+
+            </button>
+
+
+            <div
+                id="enrollmentMessage"
+                class="message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         DAILY ATTENDANCE
+    =========================================== -->
+
+    <section class="card">
+
+        <h2>
+            Daily Attendance
+        </h2>
+
+
+        <p class="description">
+
+            Start the camera and let AI detect students.
+
+        </p>
+
+
+        <div class="camera-box">
+
+
+            <div
+                id="cameraPlaceholder"
+                class="camera-placeholder"
+            >
+
+                <div class="camera-icon">
+                    ◉
+                </div>
+
+                <p>
+                    Camera not started
+                </p>
+
+            </div>
+
+
+            <video
+                id="camera"
+                autoplay
+                playsinline
+            ></video>
+
+        </div>
+
+
+        <div class="button-row">
+
+
+            <button
+                id="startCamera"
+                class="primary-button"
+            >
+
+                Start Recognition
+
+            </button>
+
+
+            <button
+                id="stopCamera"
+                class="secondary-button"
+                disabled
+            >
+
+                Stop
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="recognitionMessage"
+            class="message"
+        >
+
+            Ready to start recognition.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         DETECTED STUDENTS
+    =========================================== -->
+
+    <section class="card">
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Detected Students
+                </h2>
+
+                <p class="description">
+
+                    Review AI recognition before
+                    recording attendance.
+
+                </p>
+
+            </div>
+
+
+            <div
+                id="studentCount"
+                class="count"
+            >
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="studentList"
+            class="student-list"
+        >
+
+            <div class="empty">
+
+                <strong>
+                    No students detected
+                </strong>
+
+                <span>
+                    Start recognition to detect students.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="proceedButton"
+            class="proceed-button"
+            disabled
+        >
+
+            Proceed & Record Attendance
+
+        </button>
+
+
+        <div
+            id="attendanceMessage"
+            class="message"
+        ></div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         REPORTS
+    =========================================== -->
+
+    <section class="card">
+
+        <h2>
+            Attendance Reports
+        </h2>
+
+
+        <p class="description">
+
+            View and download attendance information.
+
+        </p>
+
+
+
+        <!-- DAILY -->
+
+        <div class="report-block">
+
+            <h3>
+                Daily Attendance
+            </h3>
+
+
+            <div class="button-row">
+
+                <button
+                    id="viewTodayButton"
+                    class="primary-button"
+                >
+
+                    View Today
+
+                </button>
+
+
+                <button
+                    id="downloadTodayButton"
+                    class="secondary-button"
+                >
+
+                    Download Today
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="todayReport"
+                class="report-result"
+            ></div>
+
+        </div>
+
+
+
+        <!-- RECOGNITION VERIFICATION -->
+
+        <div class="report-block">
+
+            <h3>
+                Recognition Verification
+            </h3>
+
+
+            <div class="form-group">
+
+                <label for="verificationDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="verificationDate"
+                >
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    id="viewVerificationButton"
+                    class="primary-button"
+                >
+
+                    View Verification
+
+                </button>
+
+
+                <button
+                    id="downloadVerificationButton"
+                    class="secondary-button"
+                >
+
+                    Download
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="verificationReport"
+                class="report-result"
+            ></div>
+
+        </div>
+
+
+
+        <!-- MONTHLY -->
+
+        <div class="report-block">
+
+            <h3>
+                Monthly Report
+            </h3>
+
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="reportMonth">
+                        Month
+                    </label>
+
+                    <select id="reportMonth">
+
+                        <option value="1">
+                            January
+                        </option>
+
+                        <option value="2">
+                            February
+                        </option>
+
+                        <option value="3">
+                            March
+                        </option>
+
+                        <option value="4">
+                            April
+                        </option>
+
+                        <option value="5">
+                            May
+                        </option>
+
+                        <option value="6">
+                            June
+                        </option>
+
+                        <option value="7">
+                            July
+                        </option>
+
+                        <option value="8">
+                            August
+                        </option>
+
+                        <option value="9">
+                            September
+                        </option>
+
+                        <option value="10">
+                            October
+                        </option>
+
+                        <option value="11">
+                            November
+                        </option>
+
+                        <option value="12">
+                            December
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="reportYear">
+                        Year
+                    </label>
+
+                    <input
+                        type="number"
+                        id="reportYear"
+                        min="2020"
+                        max="2100"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    id="viewMonthlyButton"
+                    class="primary-button"
+                >
+
+                    View Monthly Report
+
+                </button>
+
+
+                <button
+                    id="downloadMonthlyButton"
+                    class="secondary-button"
+                >
+
+                    Download
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="monthlyReport"
+                class="report-result"
+            ></div>
+
+        </div>
+
+
+
+       <!-- INDIVIDUAL STUDENT -->
+
+<div class="report-block">
+
+    <h3>
+        Individual Student Report
+    </h3>
+
+
+    <div class="form-group">
+
+        <label for="reportStudentId">
+            Student ID
+        </label>
+
+        <input
+            type="text"
+            id="reportStudentId"
+            placeholder="e.g. 001"
+        >
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label for="studentFromDate">
+                From
+            </label>
+
+            <input
+                type="date"
+                id="studentFromDate"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="studentToDate">
+                To
+            </label>
+
+            <input
+                type="date"
+                id="studentToDate"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="button-row">
+
+        <button
+            id="viewStudentReportButton"
+            class="primary-button"
+        >
+
+            You can download >
+
+        </button>
+
+
+        <button
+            id="downloadStudentReportButton"
+            class="secondary-button"
+        >
+
+            Download
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="studentReport"
+        class="report-result"
+    ></div>
+
+</div>
+           
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

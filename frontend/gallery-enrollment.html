@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery Enrollment - AI Attendance</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+
+        <nav class="navbar">
+
+            <div class="nav-brand">
+                <a href="index.html">AI Attendance</a>
+            </div>
+
+            <div class="nav-links">
+                <!-- <a href="index.html">Attendance</a>
+                <a href="index.html#enrollment">Enrollment</a>
+                <a href="index.html#reports">Reports</a> -->
+                <a href="gallery-enrollment.html">Custom Enrollment</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Gallery Enrollment -->
+    <main>
+
+        <section class="container">
+
+            <h1>Custom Enrollment</h1>
+
+            <p>
+                Upload multiple face images to enroll a student.
+            </p>
+
+
+            <!-- Student ID -->
+            <div class="form-group">
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter Student ID e.g. 010"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- Image Upload -->
+            <div class="form-group">
+
+                <label for="faceImages">
+                    Select Face Images
+                </label>
+
+                <input
+                    type="file"
+                    id="faceImages"
+                    accept="image/*"
+                    multiple
+                >
+
+                <p id="imageCount">
+                    No images selected.
+                </p>
+
+                <p>
+                    Minimum: 10 images | Maximum: 30 images
+                </p>
+
+            </div>
+
+
+            <!-- Preview -->
+            <div id="previewContainer" class="preview-container">
+            </div>
+
+
+            <!-- Proceed Button -->
+            <button
+                type="button"
+                id="proceedEnrollment"
+            >
+                Proceed & Create Embeddings
+            </button>
+
+
+            <!-- Status -->
+            <div id="enrollmentStatus"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="gallery-enrollment.js"></script>
+
+</body>
+
+</html>
