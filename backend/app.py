@@ -190,7 +190,9 @@ from database import supabase
 from recognition.dinov2_model import DinoV2
 from recognition.matcher import StudentMatcher
 
-
+FRONTEND_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "frontend")
+)
 # ==========================================
 # MEDIAPIPE FACE DETECTOR
 # ==========================================
@@ -282,14 +284,37 @@ def get_dino():
 # ==========================================
 
 @app.get("/")
-def home():
+def root():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "index.html")
+    )
 
-    return {
-        "message":
-            "AI Attendance Backend Running"
-    }
+@app.get("/style.css")
+def style():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "style.css")
+    )
 
 
+@app.get("/script.js")
+def script():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "script.js")
+    )
+
+
+@app.get("/gallery-enrollment.html")
+def gallery_enrollment_page():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "gallery-enrollment.html")
+    )
+
+
+@app.get("/gallery-enrollment.js")
+def gallery_enrollment_script():
+    return FileResponse(
+        os.path.join(FRONTEND_DIR, "gallery-enrollment.js")
+    )
 @app.get("/health")
 def health():
 
